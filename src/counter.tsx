@@ -1,5 +1,6 @@
 import { ArrowCounterClockwise, ArrowsClockwise, Minus, Plus } from "@phosphor-icons/react"
 import { useReducer } from "react"
+import { priceToToman } from "./utils"
 
 function minutesToClock(minutes: number): string {
   const addZero = (num: number) => num.toString().padStart(2, "0")
@@ -27,10 +28,15 @@ function reducer(minutes: number, action: Action) {
   return final
 }
 
+const TOMANS_PER_HOUR = 80000
+const DOLLARS_PER_HOUR = 1.33
+
 function Counter() {
   const [minutes, dispatch] = useReducer(reducer, 0, () =>
     Number(localStorage.getItem("COUNT") ?? 0),
   )
+  const tomans = priceToToman(Math.floor((minutes / 60) * TOMANS_PER_HOUR * 10))
+  const dollars = ((minutes / 60) * DOLLARS_PER_HOUR).toFixed(2)
   const btn = [
     "w-12 h-16 flex items-center justify-center",
     "hover:bg-zinc-100 hover:text-zinc-900 ",
@@ -48,7 +54,7 @@ function Counter() {
     })
 
   return (
-    <div className="flex gap-5 justify-center items-center flex-wrap">
+    <div className="flex gap-5 justify-center items-center flex-col">
       <p className="font-black text-7xl w-full text-center">{minutesToClock(minutes)}</p>
       <div className="flex border-2 border-zinc-100 divide-x-2 divide-zinc-100 rounded overflow-hidden">
         <button className={btn} type="button" onClick={reset}>
@@ -64,6 +70,11 @@ function Counter() {
           <ArrowsClockwise size={24} />
         </button>
       </div>
+      <p>
+        <span>${dollars}</span>
+        <span> - </span>
+        <span dir="rtl">{tomans} تومان</span>
+      </p>
     </div>
   )
 }
