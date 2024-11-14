@@ -29,7 +29,7 @@ function reducer(minutes: number, action: Action) {
 }
 
 const TOMANS_PER_HOUR = 80000
-const DOLLARS_PER_HOUR = 1.33
+const DOLLARS_PER_HOUR = 1
 
 function Counter() {
   const [minutes, dispatch] = useReducer(reducer, 0, () =>
