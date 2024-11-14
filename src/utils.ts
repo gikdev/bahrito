@@ -28,7 +28,7 @@ function persianifyNumber(number: string | number): string {
     .replaceAll(".", "/")
 }
 
-function priceToToman(price: number | string): string | number {
+function priceToToman(price: number | string): string {
   let _price = price
   _price = Number(_price)
   _price = Math.round(_price / 10)
