@@ -25,8 +25,6 @@ function Counter() {
       </div>
       <p className="items-center justify-center flex flex-wrap gap-2">
         <Tag currency="IRT" minutes={minutes} />
-        <Tag currency="USD" minutes={minutes} />
-        <Tag currency="TRX" minutes={minutes} />
         <Tag currency="GOLD" minutes={minutes} />
       </p>
     </div>
