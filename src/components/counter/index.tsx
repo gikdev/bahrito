@@ -1,4 +1,4 @@
-import { jn, minutesToClock } from "@/helpers"
+import { jn, minutesToClock } from "@/shared/helpers"
 import { ArrowsClockwise, Minus, Plus } from "@phosphor-icons/react"
 import Btn from "./btn"
 import Tag from "./tag"

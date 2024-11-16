@@ -1,4 +1,4 @@
-import { jn } from "@/helpers"
+import { jn } from "@/shared/helpers"
 import type { Icon } from "@phosphor-icons/react"
 
 interface Props {
