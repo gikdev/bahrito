@@ -6,4 +6,8 @@ function minutesToClock(minutes: number): string {
   return `${h}:${m}`
 }
 
-export { minutesToClock }
+function jn(...parts: string[]): { className: string } {
+  return { className: parts.join(" ") }
+}
+
+export { minutesToClock, jn }

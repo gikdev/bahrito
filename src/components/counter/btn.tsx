@@ -1,3 +1,4 @@
+import { jn } from "@/helpers"
 import type { Icon } from "@phosphor-icons/react"
 
 interface Props {
@@ -7,8 +8,8 @@ interface Props {
 
 function Btn({ icon: Icon, onClick }: Props) {
   const cn = jn(
-    "w-12 h-16 flex items-center justify-center",
-    "hover:bg-zinc-100 hover:text-zinc-900",
+    "w-16 h-16 flex items-center justify-center transition",
+    "hover:bg-neutral-lighter hover:text-neutral-darker",
     "active:scale-95 disabled:cursor-not-allowed",
   )
 
@@ -17,10 +18,6 @@ function Btn({ icon: Icon, onClick }: Props) {
       <Icon size={24} />
     </button>
   )
-}
-
-function jn(...parts: string[]): { className: string } {
-  return { className: parts.join(" ") }
 }
 
 export default Btn
