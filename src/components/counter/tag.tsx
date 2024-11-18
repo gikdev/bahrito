@@ -1,4 +1,3 @@
-import GoldLogo from "@/assets/gold-logo.png"
 import IRLogo from "@/assets/ir-logo.svg"
 
 const TOMANS_PER_HOUR = 80
