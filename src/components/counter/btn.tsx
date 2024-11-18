@@ -8,7 +8,7 @@ interface Props {
 
 function Btn({ icon: Icon, onClick }: Props) {
   const cn = jn(
-    "w-16 h-16 flex items-center justify-center transition",
+    "w-16 h-16 flex items-center justify-center",
     "hover:bg-neutral-lighter hover:text-neutral-darker",
     "active:scale-95 disabled:cursor-not-allowed",
   )
