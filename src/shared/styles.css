@@ -5,14 +5,15 @@
 @layer components {
   .powerball {
     @apply 
-      size-16 focus:rotate-180 rounded cursor-pointer
-      bg-neutral-dark text-transparent 
-      focus:bg-[#e8b904] focus:outline-none;
+      absolute left-[50%] bottom-[0%] -translate-x-1/2
+      -translate-y-1/2 size-4 focus:size-12 focus:rotate-[360deg]
+      rounded-sm cursor-pointer bg-neutral-dark focus:bottom-[5%]
+      text-transparent focus:bg-[dodgerblue] focus:outline-none;
 
-    transition: all 300ms, border-radius 500ms;
+    transition: all 500ms, border-radius 2s;
 
     &:focus {
-      box-shadow:1px 1px 10px 5px hsla(48, 97%, 46%,0.1);
+      box-shadow: 1px 1px 10px 5px hsla(210, 100%, 56%, 0.3);
       border-radius: 3rem;
     }
   }

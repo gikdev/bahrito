@@ -1,12 +1,17 @@
 import { useReducer } from "react"
 
-type Action = { type: "inc" } | { type: "dec" } | { type: "change"; value: number }
+type Action =
+  | { type: "inc" }
+  | { type: "dec" }
+  | { type: "reset" }
+  | { type: "change"; value: number }
 
 function reducer(minutes: number, action: Action) {
   let final = minutes
 
   if (action.type === "inc") final = minutes + 1
   if (action.type === "dec") final = minutes > 0 ? minutes - 1 : minutes
+  if (action.type === "reset") final = 0
   if (action.type === "change") final = action.value
 
   localStorage.setItem("COUNT", JSON.stringify(final))
@@ -20,6 +25,7 @@ function useMinutes() {
 
   const inc = () => dispatch({ type: "inc" })
   const dec = () => dispatch({ type: "dec" })
+  const reset = () => dispatch({ type: "reset" })
   const change = () => {
     // biome-ignore lint/security/noGlobalEval: <explanation>
     const value = Number(eval(prompt("How much?", minutes.toString()) ?? "0"))
@@ -27,7 +33,7 @@ function useMinutes() {
     dispatch({ type: "change", value })
   }
 
-  return { minutes, inc, dec, change }
+  return { minutes, inc, dec, change, reset }
 }
 
 export default useMinutes

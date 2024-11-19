@@ -1,13 +1,18 @@
 type Props = {
-  eventMap: { [x: string]: () => void }
+  events: [() => void, ...events: string[]][]
 }
 
-function PowerInput({ eventMap }: Props) {
+function PowerInput({ events }: Props) {
   function handleKeyUp(e: React.KeyboardEvent<HTMLInputElement>) {
-    ;(e.target as HTMLInputElement).value = ""
     e.preventDefault()
+    const target = e.target as HTMLInputElement
+    target.value = ""
 
-    for (const event in eventMap) if (e.key === event) eventMap[event]()
+    if (import.meta.env.DEV) console.log(e.key)
+
+    events.map(([action, ...keys]) => {
+      if (keys.includes(e.key)) action()
+    })
   }
 
   return <input className="powerball" onKeyDown={handleKeyUp} />
