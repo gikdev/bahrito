@@ -1,7 +1,7 @@
+import type useCounter from "@/shared/counter.reducer"
 import { jn, minutesToClock } from "@/shared/helpers"
 import { ArrowsClockwise, Minus, Plus } from "@phosphor-icons/react"
 import Btn from "./btn"
-import type useCounter from "@/shared/counter.reducer"
 
 interface Props {
   counter: ReturnType<typeof useCounter>

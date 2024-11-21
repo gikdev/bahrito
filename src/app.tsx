@@ -1,8 +1,8 @@
 import Counter from "@/components/counter"
+import PowerInput from "@/components/power-input"
+import Tag from "@/components/tag"
 import TimeBtn from "@/components/time-btn"
 import useCounter from "@/shared/counter.reducer"
-import Tag from "@/components/tag"
-import PowerInput from "@/components/power-input"
 
 function App() {
   const counter = useCounter()
