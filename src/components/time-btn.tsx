@@ -62,11 +62,11 @@ function TimeBtn({ addMinutes }: Props) {
 
   return (
     <div {...btnContainer}>
-      <button {...btn} type="button" onClick={isPlaying ? pause : play}>
+      <button id="play-pause-btn" {...btn} type="button" onClick={isPlaying ? pause : play}>
         <Icon weight="fill" size={24} />
         <span>{secondsToClock(seconds)}</span>
       </button>
-      <Btn onClick={move} icon={PaperPlaneTilt} disabled={isPlaying} />
+      <Btn id="move-btn" onClick={move} icon={PaperPlaneTilt} disabled={isPlaying} />
     </div>
   )
 }

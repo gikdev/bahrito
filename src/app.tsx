@@ -18,10 +18,22 @@ function App() {
           [counter.inc, "+", "="],
           [counter.dec, "-"],
           [counter.reset, "0"],
+          [pressMoveBtn, "Tab"],
+          [pressPlayPauseBtn, " "],
         ]}
       />
     </div>
   )
+}
+
+function pressMoveBtn() {
+  const target = document.querySelector("#move-btn") as HTMLButtonElement
+  target.click()
+}
+
+function pressPlayPauseBtn() {
+  const target = document.querySelector("#play-pause-btn") as HTMLButtonElement
+  target.click()
 }
 
 export default App

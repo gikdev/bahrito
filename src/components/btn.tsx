@@ -5,9 +5,10 @@ interface Props {
   onClick: () => void
   icon: Icon
   disabled?: boolean
+  id?: string
 }
 
-function Btn({ icon: Icon, onClick, disabled = false }: Props) {
+function Btn({ icon: Icon, onClick, disabled = false, id }: Props) {
   const cn = jn(
     "min-w-16 min-h-16 flex items-center justify-center grow shrink",
     "hover:bg-neutral-lighter hover:text-neutral-darker",
@@ -15,7 +16,7 @@ function Btn({ icon: Icon, onClick, disabled = false }: Props) {
   )
 
   return (
-    <button {...cn} type="button" onClick={onClick} disabled={disabled}>
+    <button {...cn} type="button" onClick={onClick} disabled={disabled} id={id}>
       <Icon size={24} />
     </button>
   )
