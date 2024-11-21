@@ -8,8 +8,17 @@ function minutesToClock(minutes: number): string {
   return `${h}:${m}`
 }
 
+function secondsToClock(seconds: number): string {
+  const addZero = (num: number) => num.toString().padStart(2, "0")
+  const h = Math.floor(seconds / 3600)
+  const m = Math.floor((seconds % 3600) / 60)
+  const s = seconds % 60
+
+  return `${addZero(h)}:${addZero(m)}:${addZero(s)}`
+}
+
 function jn(...parts: string[]): { className: string } {
   return { className: parts.join(" ") }
 }
 
-export { minutesToClock, jn }
+export { minutesToClock, secondsToClock, jn }

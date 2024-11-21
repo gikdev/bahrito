@@ -18,7 +18,7 @@ function Tag({ minutes, currency }: Props) {
   const [imgUrl, text] = config[currency](minutes)
 
   return (
-    <div className="bg-neutral-dark text-neutral-light rounded-full flex gap-1 items-center pe-2 hover:bg-neutral-lighter hover:text-neutral-darker">
+    <div className="mx-auto bg-neutral-dark max-w-max text-neutral-light rounded-full flex gap-1 items-center pe-2 hover:bg-neutral-lighter hover:text-neutral-darker">
       <img className="rounded-full size-4" src={imgUrl} alt="" />
       <span className="text-xs">{text}</span>
     </div>

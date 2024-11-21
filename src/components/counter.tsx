@@ -1,16 +1,18 @@
 import { jn, minutesToClock } from "@/shared/helpers"
 import { ArrowsClockwise, Minus, Plus } from "@phosphor-icons/react"
 import Btn from "./btn"
-import PowerInput from "./power-input"
-import Tag from "./tag"
-import useMinutes from "./use-minutes"
+import type useCounter from "@/shared/counter.reducer"
 
-function Counter() {
-  const { minutes, inc, dec, change, reset } = useMinutes()
+interface Props {
+  counter: ReturnType<typeof useCounter>
+}
+
+function Counter({ counter }: Props) {
+  const { minutes, inc, dec, change } = counter
 
   const btnContainer = jn(
     "flex border-2 divide-x-2 rounded overflow-hidden",
-    "border-neutral-light divide-neutral-light",
+    "border-neutral-light divide-neutral-light min-w-52",
     "hover:border-neutral-lighter hover:divide-neutral-lighter hover:text-neutral-lighter",
   )
 
@@ -23,17 +25,6 @@ function Counter() {
         <Btn onClick={dec} icon={Minus} />
         <Btn onClick={change} icon={ArrowsClockwise} />
         <Btn onClick={inc} icon={Plus} />
-      </div>
-      <PowerInput
-        events={[
-          [change, "Enter"],
-          [inc, "+", "="],
-          [dec, "-"],
-          [reset, "0"],
-        ]}
-      />
-      <div className="items-center justify-center flex flex-wrap gap-2">
-        <Tag currency="IRT" minutes={minutes} />
       </div>
     </div>
   )

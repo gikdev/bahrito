@@ -4,8 +4,7 @@
 
 @layer components {
   .powerball {
-    @apply 
-      absolute left-[50%] bottom-[5%] -translate-x-1/2 opacity-50
+    @apply absolute left-[50%] bottom-[5%] -translate-x-1/2 opacity-50
       -translate-y-1/2 size-4 focus:size-12 focus:rotate-[360deg]
       rounded-xl cursor-pointer bg-neutral-dark focus:bottom-[10%]
       text-transparent focus:bg-[dodgerblue] focus:outline-none
@@ -16,7 +15,7 @@
 
     &:focus {
       box-shadow: 1px 1px 10px 5px hsla(210, 100%, 56%, 0.3);
-      animation: spinner 3000ms ease-in-out infinite ;
+      animation: spinner 3000ms ease-in-out infinite;
     }
   }
 }
