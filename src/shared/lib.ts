@@ -1,4 +1,12 @@
-function minutesToClock(minutes: number): string {
+export function randomId() {
+  const timestamp = Date.now().toString(36)
+  const randomPart = Math.random().toString(36).substring(2, 5)
+  const result = `id-${timestamp}-${randomPart}`
+  console.log(result)
+  return result
+}
+
+export function minutesToClock(minutes: number): string {
   const addZero = (num: number) => num.toString().padStart(2, "0")
   // const d = Math.floor(minutes / 60 / 24)
   // const h = addZero(Math.floor(minutes / 60 - d * 24))
@@ -8,7 +16,7 @@ function minutesToClock(minutes: number): string {
   return `${h}:${m}`
 }
 
-function secondsToClock(seconds: number): string {
+export function secondsToClock(seconds: number): string {
   const addZero = (num: number) => num.toString().padStart(2, "0")
   const h = Math.floor(seconds / 3600)
   const m = Math.floor((seconds % 3600) / 60)
@@ -17,8 +25,6 @@ function secondsToClock(seconds: number): string {
   return `${addZero(h)}:${addZero(m)}:${addZero(s)}`
 }
 
-function jn(...parts: string[]): { className: string } {
+export function jn(...parts: string[]): { className: string } {
   return { className: parts.join(" ") }
 }
-
-export { minutesToClock, secondsToClock, jn }

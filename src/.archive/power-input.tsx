@@ -1,8 +1,8 @@
-type Props = {
-  events: [() => void, ...events: string[]][]
+interface Props {
+  events: Array<[() => void, ...events: string[]]>
 }
 
-function PowerInput({ events }: Props) {
+export default function PowerInput({ events }: Props) {
   function handleKeyUp(e: React.KeyboardEvent<HTMLInputElement>) {
     e.preventDefault()
     const target = e.target as HTMLInputElement
@@ -17,5 +17,3 @@ function PowerInput({ events }: Props) {
 
   return <input className="powerball" onKeyDown={handleKeyUp} />
 }
-
-export default PowerInput
