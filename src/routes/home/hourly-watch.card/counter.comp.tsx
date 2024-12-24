@@ -1,7 +1,7 @@
+import IconBtn from "@/components/icon-btn"
 import { useCounter } from "@/shared/atoms"
 import { minutesToClock } from "@/shared/lib"
 import { ArrowsClockwise, Minus, Plus } from "@phosphor-icons/react"
-import IconBtn from "@/components/icon-btn"
 
 export default function Counter() {
   const { minutes, inc, dec, change } = useCounter()

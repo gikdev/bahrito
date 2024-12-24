@@ -1,8 +1,8 @@
+import IconBtn from "@/components/icon-btn"
 import { useCounter } from "@/shared/atoms"
 import { secondsToClock } from "@/shared/lib"
 import { PaperPlaneTilt, Pause, Play } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
-import IconBtn from "@/components/icon-btn"
 
 function calculateTimeSpanBetween(date1: Date | undefined, date2: Date | undefined): number {
   if (!date1 || !date2) return Number.NaN
