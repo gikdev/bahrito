@@ -1,6 +1,6 @@
 import IconBtn from "@/components/icon-btn"
-import { type Task, useTasksAtom } from "@/shared/atoms"
-import { Check, Pen, Trash } from "@phosphor-icons/react"
+import { type Task, useOneTask, useTasksAtom } from "@/shared/atoms"
+import { Check, Pen, Plus, Trash } from "@phosphor-icons/react"
 import { useId, useState } from "react"
 
 const containerStyles = "flex items-center gap-2 w-96"
@@ -9,11 +9,15 @@ export function TodoItem({ id, name, isCompleted }: Task) {
   const tasks = useTasksAtom()
   const [taskName, setTaskName] = useState(name)
   const [isEditing, setIsEditing] = useState(false)
+  const { oneTask, setOneTask } = useOneTask()
+  const isOneTask = oneTask === id
   const inputID = `task-${id}-${useId()}`
 
   const toggleIsEditing = () => setIsEditing(curr => !curr)
   const handleTodoToggle = () => tasks.toggle(id)
   const handleItemDeletion = () => tasks.remove(id)
+  const addOneTask = () => setOneTask(id)
+  const clearOneTask = () => setOneTask("")
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -59,6 +63,12 @@ export function TodoItem({ id, name, isCompleted }: Task) {
       >
         {name}
       </label>
+      <IconBtn
+        disabled={isCompleted}
+        icon={isOneTask ? Check : Plus}
+        className="btn-square btn-outline btn-info btn-sm"
+        onClick={isOneTask ? clearOneTask : addOneTask}
+      />
       <IconBtn
         icon={Pen}
         className="btn-square btn-outline btn-warning btn-sm"
