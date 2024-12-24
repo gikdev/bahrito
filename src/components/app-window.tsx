@@ -5,11 +5,11 @@ interface Props {
 
 export default function AppWindow({ title, children }: Props) {
   return (
-    <div>
-      <div>
+    <div className="card card-bordered card-compact bg-base-100 w-96 shadow-xl">
+      <div className="border-b border-secondary">
         <p>{title}</p>
       </div>
-      <div>{children}</div>
+      <div className="card-body">{children}</div>
     </div>
   )
 }

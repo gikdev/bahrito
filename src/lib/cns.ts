@@ -2,12 +2,11 @@ import clsx from "clsx"
 import type { ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+export const jn = (...parts: string[]) => ({ className: parts.join(" ") })
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 export const ccn = (...inputs: ClassValue[]) => ({ className: cn(inputs) })
 
-export interface CCNSSInput {
-  [x: string]: ClassValue[] | ClassValue
-}
+type CCNSSInput = Record<string, ClassValue | ClassValue[]>
 
 export class CCNStyleSheet {
   [x: string]: { className: string }
@@ -31,6 +30,21 @@ export class CNStyleSheet {
       const isArray = Array.isArray(value)
 
       this[rule] = isArray ? cn(...value) : cn([value])
+    }
+  }
+}
+
+type JNSSInput = Record<string, string | string[]>
+
+export class JNStyleSheet {
+  [x: string]: { className: string }
+
+  constructor(styleSheet: JNSSInput) {
+    for (const rule in styleSheet) {
+      const value = styleSheet[rule]
+      const isArray = Array.isArray(value)
+
+      this[rule] = isArray ? jn(...value) : jn(value)
     }
   }
 }
