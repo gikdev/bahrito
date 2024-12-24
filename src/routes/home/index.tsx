@@ -3,7 +3,7 @@ import TodolyCard from "./todoly.card"
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-row flex-wrap gap-5">
       <HourlyWatchCard />
       <TodolyCard />
     </div>

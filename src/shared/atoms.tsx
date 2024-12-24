@@ -1,7 +1,7 @@
+import { randomId } from "@/lib/generators"
 import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 import { useCallback } from "react"
-import { randomId } from "./lib"
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////

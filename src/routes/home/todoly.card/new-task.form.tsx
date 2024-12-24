@@ -1,3 +1,4 @@
+import IconBtn from "@/components/icon-btn"
 import { useTasksAtom } from "@/shared/atoms"
 import { PaperPlaneTilt } from "@phosphor-icons/react"
 import { useRef } from "react"
@@ -18,12 +19,9 @@ export function NewTaskForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <form onSubmit={handleSubmit} className="flex gap-2 w-full">
       <input ref={inputRef} type="text" name="taskName" className="input input-bordered grow" />
-      <button type="submit" className="btn btn-primary btn-square sm:w-max sm:px-4">
-        <PaperPlaneTilt size={24} />
-        <span className="hidden sm:inline-block">Add Task</span>
-      </button>
+      <IconBtn type="submit" icon={PaperPlaneTilt} className="btn-primary btn-square" />
     </form>
   )
 }

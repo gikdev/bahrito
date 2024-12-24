@@ -1,9 +1,9 @@
+import IconBtn from "@/components/icon-btn"
 import { type Task, useTasksAtom } from "@/shared/atoms"
 import { Check, Pen, Trash } from "@phosphor-icons/react"
 import { useId, useState } from "react"
 
 const containerStyles = "flex items-center gap-2 w-96"
-const ICON_SIZE = 32
 
 export function TodoItem({ id, name, isCompleted }: Task) {
   const tasks = useTasksAtom()
@@ -35,9 +35,11 @@ export function TodoItem({ id, name, isCompleted }: Task) {
             onChange={e => setTaskName(e.target.value)}
             className="input input-bordered grow shrink"
           />
-          <button type="submit" className="btn btn-square btn-outline btn-success">
-            <Check size={ICON_SIZE} />
-          </button>
+          <IconBtn
+            icon={Check}
+            type="submit"
+            className="btn-square btn-sm btn-outline btn-success"
+          />
         </form>
       </li>
     )
@@ -57,20 +59,16 @@ export function TodoItem({ id, name, isCompleted }: Task) {
       >
         {name}
       </label>
-      <button
+      <IconBtn
+        icon={Pen}
+        className="btn-square btn-outline btn-warning btn-sm"
         onClick={toggleIsEditing}
-        className="btn btn-square btn-outline btn-warning"
-        type="button"
-      >
-        <Pen size={ICON_SIZE} />
-      </button>
-      <button
+      />
+      <IconBtn
+        icon={Trash}
+        className="btn-square btn-outline btn-error btn-sm"
         onClick={handleItemDeletion}
-        className="btn btn-square btn-outline btn-error"
-        type="button"
-      >
-        <Trash size={ICON_SIZE} />
-      </button>
+      />
     </li>
   )
 }

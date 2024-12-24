@@ -1,11 +1,17 @@
+import AppWindow from "@/components/app-window"
+import { CheckSquare } from "@phosphor-icons/react"
 import { NewTaskForm } from "./new-task.form"
 import { TodoList } from "./todo-list.comp"
 
 export default function TodolyCard() {
   return (
-    <div className="card card-body card-bordered card-compact bg-base-100 shadow-xl flex flex-col items-center gap-5">
+    <AppWindow
+      icon={CheckSquare}
+      title="Todoly"
+      contentContainerClassName="flex flex-col items-center gap-5"
+    >
       <NewTaskForm />
       <TodoList />
-    </div>
+    </AppWindow>
   )
 }
