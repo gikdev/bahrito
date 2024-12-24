@@ -1,6 +1,6 @@
 import IconBtn from "@/components/icon-btn"
+import { secondsToClock } from "@/lib/date-time"
 import { useCounter } from "@/shared/atoms"
-import { secondsToClock } from "@/shared/lib"
 import { PaperPlaneTilt, Pause, Play } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 
