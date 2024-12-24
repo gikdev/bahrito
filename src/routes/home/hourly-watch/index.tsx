@@ -5,7 +5,7 @@ import Counter from "./counter.comp"
 import Tag from "./tag.comp"
 import TimeBtn from "./time-btn.comp"
 
-export default function HourlyWatchCard() {
+export default function HourlyWatch() {
   const counter = useCounter()
 
   return (
