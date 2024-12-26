@@ -96,3 +96,31 @@ export function useTasksAtom() {
 
   return { tasks, setTasks, add, remove, toggle, rename }
 }
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+
+const oneTaskAtom = atomWithStorage("ONE_TASK", "")
+
+export function useOneTask() {
+  const { tasks } = useTasksAtom()
+  const [oneTask, _setOneTask] = useAtom(oneTaskAtom)
+
+  const setOneTask = useCallback(
+    (taskId: string) => {
+      if (taskId === "") {
+        _setOneTask("")
+        return
+      }
+      const found = tasks.find(t => t.id === taskId)
+      if (!found) alert(`Invalid task ID: Task not found with ID: ${taskId}`)
+      _setOneTask(taskId)
+    },
+    [tasks, _setOneTask],
+  )
+
+  return { oneTask, setOneTask }
+}
