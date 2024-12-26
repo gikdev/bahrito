@@ -3,7 +3,7 @@ import { CheckSquare } from "@phosphor-icons/react"
 import { NewTaskForm } from "./new-task.form"
 import { TodoList } from "./todo-list.comp"
 
-export default function TodolyCard() {
+export default function Todoly() {
   return (
     <AppWindow
       icon={CheckSquare}
