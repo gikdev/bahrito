@@ -1,11 +1,15 @@
-import AppWindow from "@/components/app-window"
+import { ccn } from "@/lib/cns"
 import { useOneTask, useTasksAtom } from "@/shared/atoms"
-import { NumberCircleOne } from "@phosphor-icons/react"
 
-export default function OneThing() {
+interface Props {
+  className?: string
+}
+
+export default function OneThingCore({ className = "" }: Props) {
   const { tasks, toggle } = useTasksAtom()
   const { oneTask, setOneTask } = useOneTask()
   const theTask = tasks.find(t => t.id === oneTask)
+  const styles = ccn("flex flex-col items-center gap-5", className)
 
   const doIt = () => {
     toggle(oneTask)
@@ -13,12 +17,7 @@ export default function OneThing() {
   }
 
   return (
-    <AppWindow
-      icon={NumberCircleOne}
-      title="1-thing"
-      contentContainerClassName="flex flex-col items-center gap-5"
-      cardClassName="max-w-96"
-    >
+    <div {...styles}>
       {oneTask ? (
         <>
           <p className="break-all">
@@ -33,6 +32,6 @@ export default function OneThing() {
           Add a <strong>ONE TASK</strong> to start!
         </p>
       )}
-    </AppWindow>
+    </div>
   )
 }

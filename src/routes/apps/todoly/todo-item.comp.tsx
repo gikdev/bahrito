@@ -1,4 +1,5 @@
 import IconBtn from "@/components/icon-btn"
+import { ccn } from "@/lib/cns"
 import { type Task, useOneTask, useTasksAtom } from "@/shared/atoms"
 import { Check, Pen, Plus, Trash } from "@phosphor-icons/react"
 import { useId, useState } from "react"
@@ -51,6 +52,7 @@ export function TodoItem({ id, name, isCompleted }: Task) {
   return (
     <li className={containerStyles}>
       <input
+        disabled={isOneTask}
         onChange={handleTodoToggle}
         checked={isCompleted}
         id={inputID}
@@ -66,8 +68,8 @@ export function TodoItem({ id, name, isCompleted }: Task) {
       <IconBtn
         disabled={isCompleted}
         icon={isOneTask ? Check : Plus}
-        className="btn-square btn-outline btn-info btn-sm"
         onClick={isOneTask ? clearOneTask : addOneTask}
+        {...ccn("btn-square btn-info btn-sm", { "btn-outline": !isOneTask })}
       />
       <IconBtn
         icon={Pen}
@@ -75,6 +77,7 @@ export function TodoItem({ id, name, isCompleted }: Task) {
         onClick={toggleIsEditing}
       />
       <IconBtn
+        disabled={isOneTask}
         icon={Trash}
         className="btn-square btn-outline btn-error btn-sm"
         onClick={handleItemDeletion}
