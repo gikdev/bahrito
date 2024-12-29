@@ -1,20 +1,32 @@
 import { ccn } from "@/lib/cns"
 import { randomId } from "@/lib/generators"
-import { CheckSquare, Clock, House, type Icon, NumberCircleOne } from "@phosphor-icons/react"
+import {
+  CheckSquare,
+  Clock,
+  Desk,
+  Gear,
+  House,
+  type Icon,
+  Notepad,
+  NumberCircleOne,
+} from "@phosphor-icons/react"
 import { Link, useLocation } from "wouter"
 import Nav from "./nav"
 
-interface MenuItemParent {
+interface Common {
   id: string
   title: string
+  disabled?: true
+  isNew?: true
+}
+
+interface MenuItemParent extends Common {
   icon: null
   href: null
   subItems: MenuItem[]
 }
 
-interface MenuItemChild {
-  id: string
-  title: string
+interface MenuItemChild extends Common {
   icon: Icon
   href: string
   subItems: null
@@ -32,15 +44,23 @@ const menuConfig: MenuItem[] = [
   },
   {
     id: randomId(),
+    title: "Settings",
+    href: "/settings",
+    icon: Gear,
+    subItems: null,
+    disabled: true,
+  },
+  {
+    id: randomId(),
     title: "WORKSPACES",
     href: null,
     icon: null,
     subItems: [
       {
         id: randomId(),
-        icon: Clock,
-        title: "Time Management",
-        href: "/workspaces/time-management",
+        icon: Desk,
+        title: "Work",
+        href: "/workspaces/work",
         subItems: null,
       },
     ],
@@ -71,6 +91,14 @@ const menuConfig: MenuItem[] = [
         title: "One Thing",
         href: "/apps/one-thing",
         subItems: null,
+      },
+      {
+        id: randomId(),
+        icon: Notepad,
+        title: "Notehad",
+        href: "/apps/notehad",
+        subItems: null,
+        isNew: true,
       },
     ],
   },
@@ -105,20 +133,22 @@ export default function Drawer({ children, className }: Props) {
   function renderItems(item: MenuItem): JSX.Element {
     const isCateg = !!item.subItems
     const IconToRender = item.icon as Icon
+    const FinalLink = item.disabled ? "span" : Link
 
     return isCateg ? (
-      <li key={item.id}>
+      <li key={item.id} {...ccn({ disabled: !!item.disabled })}>
         <details open>
           <summary>{item.title.toUpperCase()}</summary>
           <ul>{item.subItems?.map(renderItems)}</ul>
         </details>
       </li>
     ) : (
-      <li key={item.id}>
-        <Link href={item.href} className={item.href === location ? "active" : undefined}>
+      <li key={item.id} {...ccn({ disabled: !!item.disabled })}>
+        <FinalLink href={item.href} {...ccn({ active: item.href === location })}>
           <IconToRender size={20} />
           <span>{item.title}</span>
-        </Link>
+          {item.isNew && <div className="badge badge-secondary badge-sm">NEW</div>}
+        </FinalLink>
       </li>
     )
   }

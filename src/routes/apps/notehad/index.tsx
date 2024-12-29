@@ -1,9 +1,9 @@
-import OneThingCard from "./card"
+import NotehadCard from "./card"
 
-export default function OneThing() {
+export default function Notehad() {
   return (
     <div className="p-2 grow shrink flex items-center justify-center">
-      <OneThingCard />
+      <NotehadCard />
     </div>
   )
 }

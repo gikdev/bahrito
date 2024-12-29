@@ -1,8 +1,8 @@
 import IconBtn from "@/components/icon-btn"
 import { secondsToClock } from "@/lib/date-time"
-import { useCounter } from "@/shared/atoms"
 import { PaperPlaneTilt, Pause, Play } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
+import { useCounterAtom } from "./atom"
 
 function calculateTimeSpanBetween(date1: Date | undefined, date2: Date | undefined): number {
   if (!date1 || !date2) return Number.NaN
@@ -16,7 +16,7 @@ function calculateTimeSpanBetween(date1: Date | undefined, date2: Date | undefin
 }
 
 export default function TimeBtn() {
-  const addMinutes = useCounter().add
+  const addMinutes = useCounterAtom().add
   const [isPlaying, setPlaying] = useState(false)
   const [startDate, setStartDate] = useState<Date>()
   const [seconds, setSeconds] = useState(0)

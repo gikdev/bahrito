@@ -1,5 +1,5 @@
 import { ccn } from "@/lib/cns"
-import { useCounter } from "@/shared/atoms"
+import { useCounterAtom } from "./atom"
 import Counter from "./counter.comp"
 import Tag from "./tag.comp"
 import TimeBtn from "./time-btn.comp"
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function SalaryWatchCore({ className = "" }: Props) {
-  const counter = useCounter()
+  const counter = useCounterAtom()
   const styles = ccn("flex flex-col items-center gap-2", className)
 
   return (

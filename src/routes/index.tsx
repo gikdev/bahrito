@@ -1,10 +1,11 @@
 import { Route, Switch } from "wouter"
+import Notehad from "./apps/notehad"
 import OneThing from "./apps/one-thing"
 import SalaryWatch from "./apps/salary-watch"
 import Todoly from "./apps/todoly"
 import Base from "./base"
 import Home from "./home"
-import TimeManagement from "./workspaces/time-management"
+import Work from "./workspaces/work"
 
 export default function Routes() {
   return (
@@ -12,11 +13,12 @@ export default function Routes() {
       <Switch>
         <Route path="/" component={Home} />
 
-        <Route path="/workspaces/time-management" component={TimeManagement} />
+        <Route path="/workspaces/work" component={Work} />
 
         <Route path="/apps/salary-watch" component={SalaryWatch} />
         <Route path="/apps/todoly" component={Todoly} />
         <Route path="/apps/one-thing" component={OneThing} />
+        <Route path="/apps/notehad" component={Notehad} />
 
         <Route path="*">
           <h1>404 Not Found</h1>

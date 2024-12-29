@@ -1,10 +1,10 @@
 import IconBtn from "@/components/icon-btn"
 import { minutesToClock } from "@/lib/date-time"
-import { useCounter } from "@/shared/atoms"
 import { ArrowsClockwise, Minus, Plus } from "@phosphor-icons/react"
+import { useCounterAtom } from "./atom"
 
 export default function Counter() {
-  const { minutes, inc, dec, change } = useCounter()
+  const { minutes, inc, dec, change } = useCounterAtom()
 
   return (
     <div className="flex gap-5 justify-center items-center flex-col w-full">
