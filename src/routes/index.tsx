@@ -5,6 +5,7 @@ import SalaryWatch from "./apps/salary-watch"
 import Todoly from "./apps/todoly"
 import Base from "./base"
 import Home from "./home"
+import Settings from "./settings"
 import Work from "./workspaces/work"
 
 export default function Routes() {
@@ -12,6 +13,7 @@ export default function Routes() {
     <Base>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/settings" component={Settings} />
 
         <Route path="/workspaces/work" component={Work} />
 

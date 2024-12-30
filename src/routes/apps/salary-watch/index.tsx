@@ -1,9 +1,10 @@
+import CenterContainer from "@/components/center-container"
 import SalaryWatchCard from "./card"
 
 export default function SalaryWatch() {
   return (
-    <div className="p-2 grow shrink flex items-center justify-center">
+    <CenterContainer>
       <SalaryWatchCard />
-    </div>
+    </CenterContainer>
   )
 }

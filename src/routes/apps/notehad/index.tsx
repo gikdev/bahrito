@@ -1,9 +1,10 @@
+import CenterContainer from "@/components/center-container"
 import NotehadCard from "./card"
 
 export default function Notehad() {
   return (
-    <div className="p-2 grow shrink flex items-center justify-center">
+    <CenterContainer>
       <NotehadCard />
-    </div>
+    </CenterContainer>
   )
 }

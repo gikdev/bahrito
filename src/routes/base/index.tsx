@@ -1,4 +1,4 @@
-import Drawer from "@/components/drawer"
+import Drawer from "./drawer.comp"
 
 interface Props {
   children: React.ReactNode

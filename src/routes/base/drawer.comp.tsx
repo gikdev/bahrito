@@ -11,7 +11,7 @@ import {
   NumberCircleOne,
 } from "@phosphor-icons/react"
 import { Link, useLocation } from "wouter"
-import Nav from "./nav"
+import Nav from "./nav.comp"
 
 interface Common {
   id: string
@@ -48,7 +48,7 @@ const menuConfig: MenuItem[] = [
     href: "/settings",
     icon: Gear,
     subItems: null,
-    disabled: true,
+    isNew: true,
   },
   {
     id: randomId(),
@@ -98,7 +98,6 @@ const menuConfig: MenuItem[] = [
         title: "Notehad",
         href: "/apps/notehad",
         subItems: null,
-        isNew: true,
       },
     ],
   },
