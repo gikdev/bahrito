@@ -3,7 +3,7 @@ import { useTasksAtom } from "@/shared/atoms"
 import { PaperPlaneTilt } from "@phosphor-icons/react"
 import { useRef } from "react"
 
-export function NewTaskForm() {
+export default function NewTaskForm() {
   const tasks = useTasksAtom()
   const inputRef = useRef<HTMLInputElement>(null)
 

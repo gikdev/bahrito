@@ -16,6 +16,7 @@ function download(content: string, filename: string, _contentType: string) {
 
 interface AppData {
   MINUTES: number
+  TASK_FILTER_QUERY: string
   TASKS: Task[]
   ONE_TASK: string
   NOTES: string
@@ -28,6 +29,7 @@ function backupAndDownload() {
     TASKS: JSON.parse(localStorage.getItem("TASKS") ?? "[]") ?? [],
     ONE_TASK: JSON.parse(localStorage.getItem("ONE_TASK") ?? ""),
     NOTES: JSON.parse(localStorage.getItem("NOTES") ?? ""),
+    TASK_FILTER_QUERY: JSON.parse(localStorage.getItem("TASK_FILTER_QUERY") ?? ""),
   }
 
   const stringifiedAppData = JSON.stringify(appData)
