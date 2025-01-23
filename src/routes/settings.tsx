@@ -19,6 +19,7 @@ interface AppData {
   TASK_FILTER_QUERY: string
   TASKS: Task[]
   ONE_TASK: string
+  SHOW_HIDE_TASKS: boolean
   NOTES: string
 }
 
@@ -30,6 +31,7 @@ function backupAndDownload() {
     ONE_TASK: JSON.parse(localStorage.getItem("ONE_TASK") ?? ""),
     NOTES: JSON.parse(localStorage.getItem("NOTES") ?? ""),
     TASK_FILTER_QUERY: JSON.parse(localStorage.getItem("TASK_FILTER_QUERY") ?? ""),
+    SHOW_HIDE_TASKS: JSON.parse(localStorage.getItem("SHOW_HIDE_TASKS") ?? "true"),
   }
 
   const stringifiedAppData = JSON.stringify(appData)

@@ -1,5 +1,5 @@
 import { type Task, useTasksAtom } from "@/shared/atoms"
-import { useTaskFilterQueryAtom } from "./core"
+import { useHideDoneTasksAtom, useTaskFilterQueryAtom } from "./core"
 import { TodoItem } from "./todo-item.comp"
 
 function toReversed<T>(arr: T[]): T[] {
@@ -11,7 +11,10 @@ function toReversed<T>(arr: T[]): T[] {
 export default function TodoList() {
   const tasks = useTasksAtom()
   const [query] = useTaskFilterQueryAtom()
-  const filteredTasks = tasks.tasks.filter(t => t.name.includes(query))
+  const [hideDoneTasks] = useHideDoneTasksAtom()
+  const queryTaskFilter = (t: Task) => t.name.includes(query)
+  const hideTaskFilter = (t: Task) => (hideDoneTasks ? t.isCompleted === false : true)
+  const filteredTasks = tasks.tasks.filter(queryTaskFilter).filter(hideTaskFilter)
 
   return (
     <ul className="flex flex-col gap-3 overflow-y-auto max-h-96 items-center">

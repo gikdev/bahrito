@@ -1,8 +1,9 @@
 import IconBtn from "@/components/icon-btn"
 import { Trash } from "@phosphor-icons/react"
-import { useTaskFilterQueryAtom } from "./core"
+import { useHideDoneTasksAtom, useTaskFilterQueryAtom } from "./core"
 
 export default function FilterTaskForm() {
+  const [hideDone, setHideDone] = useHideDoneTasksAtom()
   const [query, setQuery] = useTaskFilterQueryAtom()
 
   return (
@@ -16,6 +17,13 @@ export default function FilterTaskForm() {
         icon={Trash}
         onClick={() => setQuery("")}
         className="btn-error btn-sm btn-outline btn-square"
+      />
+      <input
+        type="checkbox"
+        aria-label="!x"
+        className="btn btn-sm btn-square"
+        checked={hideDone}
+        onChange={e => setHideDone(e.target.checked)}
       />
     </div>
   )

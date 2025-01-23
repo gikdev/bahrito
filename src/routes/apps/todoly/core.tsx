@@ -8,6 +8,9 @@ import TodoList from "./todo-list.comp"
 const taskFilterQueryAtom = atomWithStorage("TASK_FILTER_QUERY", "")
 export const useTaskFilterQueryAtom = () => useAtom(taskFilterQueryAtom)
 
+const showHideTasksAtom = atomWithStorage("SHOW_HIDE_TASKS", true)
+export const useHideDoneTasksAtom = () => useAtom(showHideTasksAtom)
+
 interface Props {
   className?: string
 }
