@@ -59,12 +59,11 @@ export function TodoItem({ id, name, isCompleted }: Task) {
         className="checkbox checkbox-primary checkbox-lg"
         type="checkbox"
       />
-      <label
-        htmlFor={inputID}
+      <span
         className={`grow cursor-pointer w-52 break-words ${isCompleted ? "text-gray-500 line-through" : ""}`}
       >
         {name}
-      </label>
+      </span>
       <IconBtn
         disabled={isCompleted}
         icon={isOneTask ? Check : Plus}
