@@ -1,6 +1,9 @@
+const IRT_PER_HOUR = 80
+const IRT_PER_USD = 90
+const USD_PER_HOUR = Number.parseFloat((IRT_PER_HOUR / IRT_PER_USD).toFixed(2))
+
 const converter: Record<string, (m: number) => string> = {
   IRT(m) {
-    const IRT_PER_HOUR = 80
     const value = Math.floor((m / 60) * IRT_PER_HOUR)
       .toString()
       .padStart(3, "0")
@@ -8,7 +11,6 @@ const converter: Record<string, (m: number) => string> = {
   },
 
   USD(m) {
-    const USD_PER_HOUR = 1
     const value = ((m / 60) * USD_PER_HOUR).toFixed(2).padStart(2, "0")
     return `$${value}`
   },

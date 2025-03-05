@@ -1,6 +1,8 @@
 import { ccn } from "@/lib/cns"
 import { randomId } from "@/lib/generators"
 import {
+  Browsers,
+  CheckFat,
   CheckSquare,
   Clock,
   Desk,
@@ -9,6 +11,7 @@ import {
   type Icon,
   Notepad,
   NumberCircleOne,
+  Radio,
 } from "@phosphor-icons/react"
 import { Link, useLocation } from "wouter"
 import Nav from "./nav.comp"
@@ -48,7 +51,6 @@ const menuConfig: MenuItem[] = [
     href: "/settings",
     icon: Gear,
     subItems: null,
-    isNew: true,
   },
   {
     id: randomId(),
@@ -98,6 +100,14 @@ const menuConfig: MenuItem[] = [
         title: "Notehad",
         href: "/apps/notehad",
         subItems: null,
+      },
+      {
+        id: randomId(),
+        icon: Browsers,
+        title: "Mini Browser",
+        href: "/apps/mini-browser",
+        subItems: null,
+        isNew: true,
       },
     ],
   },
