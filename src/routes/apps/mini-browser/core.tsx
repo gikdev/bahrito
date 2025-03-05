@@ -1,6 +1,4 @@
 import { cn } from "@/lib/cns"
-import { MagnifyingGlass } from "@phosphor-icons/react"
-import type { FormEventHandler } from "react"
 
 interface App {
   name: string

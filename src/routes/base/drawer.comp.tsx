@@ -2,7 +2,6 @@ import { ccn } from "@/lib/cns"
 import { randomId } from "@/lib/generators"
 import {
   Browsers,
-  CheckFat,
   CheckSquare,
   Clock,
   Desk,
@@ -11,7 +10,6 @@ import {
   type Icon,
   Notepad,
   NumberCircleOne,
-  Radio,
 } from "@phosphor-icons/react"
 import { Link, useLocation } from "wouter"
 import Nav from "./nav.comp"
