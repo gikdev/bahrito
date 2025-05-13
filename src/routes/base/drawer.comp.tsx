@@ -1,7 +1,6 @@
 import { ccn } from "@/lib/cns"
 import { randomId } from "@/lib/generators"
 import {
-  Browsers,
   CheckSquare,
   Clock,
   Desk,
@@ -98,14 +97,6 @@ const menuConfig: MenuItem[] = [
         title: "Notehad",
         href: "/apps/notehad",
         subItems: null,
-      },
-      {
-        id: randomId(),
-        icon: Browsers,
-        title: "Mini Browser",
-        href: "/apps/mini-browser",
-        subItems: null,
-        isNew: true,
       },
     ],
   },

@@ -1,4 +1,3 @@
-import MiniBrowserCard from "@/routes/apps/mini-browser/card"
 import NotehadCard from "@/routes/apps/notehad/card"
 import OneThingCard from "@/routes/apps/one-thing/card"
 import SalaryWatchCard from "@/routes/apps/salary-watch/card"
@@ -11,10 +10,6 @@ export default function WorkCore() {
       <OneThingCard />
       <TodolyCard />
       <NotehadCard />
-
-      <MiniBrowserCard />
-      <MiniBrowserCard />
-      <MiniBrowserCard />
     </div>
   )
 }

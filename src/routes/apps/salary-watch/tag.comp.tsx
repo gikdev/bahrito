@@ -1,5 +1,5 @@
-const IRT_PER_HOUR = 80
-const IRT_PER_USD = 90
+const IRT_PER_HOUR = 100
+const IRT_PER_USD = 80
 const USD_PER_HOUR = Number.parseFloat((IRT_PER_HOUR / IRT_PER_USD).toFixed(2))
 
 const converter: Record<string, (m: number) => string> = {

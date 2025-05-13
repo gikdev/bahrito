@@ -1,5 +1,4 @@
 import { Route, Switch } from "wouter"
-import MiniBrowser from "./apps/mini-browser"
 import Notehad from "./apps/notehad"
 import OneThing from "./apps/one-thing"
 import SalaryWatch from "./apps/salary-watch"
@@ -22,7 +21,6 @@ export default function Routes() {
         <Route path="/apps/todoly" component={Todoly} />
         <Route path="/apps/one-thing" component={OneThing} />
         <Route path="/apps/notehad" component={Notehad} />
-        <Route path="/apps/mini-browser" component={MiniBrowser} />
 
         <Route path="*">
           <h1>404 Not Found</h1>
